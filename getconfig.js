@@ -1,3 +1,5 @@
+'use strict';
+
 var Fs = require('fs');
 var Path = require('path');
 
@@ -11,13 +13,22 @@ internals.merge = function (target, source) {
         var key = keys[i];
         if (target.hasOwnProperty(key) &&
             !Array.isArray(target[key]) &&
-            typeof target[key] === 'object' &&
-            typeof source[key] === 'object' &&
-            source[key] !== null) {
+                typeof target[key] === 'object' &&
+                    typeof source[key] === 'object' &&
+                        source[key] !== null) {
 
-                    internals.merge(target[key], source[key]);
-                    continue;
+            internals.merge(target[key], source[key]);
+            continue;
         }
+        // If the new value is an environment variable, check for its existence first.
+        // If it is not available, keep the original config value instead of merging this one.
+        if (typeof source[key] === 'string'
+            && internals.envRE.test(source[key])
+                && !process.env[source[key].slice(1)]
+        ) {
+            continue;
+        }
+
         target[key] = source[key];
     }
 };
