@@ -1,5 +1,7 @@
 #getconfig - config fetcher for node.js
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/84d6f692dcc44dfbaaa2c842868158ec)](https://www.codacy.com/app/SimpleLTC/getconfig?utm_source=github.com&utm_medium=referral&utm_content=simpleltc/getconfig&utm_campaign=badger)
+
 Managing configs for different environments is kind of a pain. 
 
 In short I wanted it to:
