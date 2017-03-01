@@ -45,7 +45,6 @@ internals.isDir = function (path) {
 };
 
 internals.findConfig = function (root) {
-
     root = root || (require.main ? Path.dirname(require.main.filename) : process.cwd());
     var path = Path.join(root, 'config');
     if (internals.isDir(path)) {
@@ -82,7 +81,7 @@ internals.tryRequire = function (root, type) {
     return result;
 };
 
-internals.envRE = /^\$[A-Z0-9_]+$/;
+internals.envRE = /^\$[a-zA-Z0-9_]+$/;
 internals.expandEnvironment = function (config) {
 
     var keys = Object.keys(config);

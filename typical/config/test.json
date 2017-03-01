@@ -1,7 +1,8 @@
 {
     "testValue": "test-value",
     "testEnv": "$NODE_ENV",
-    "invalidEnv": "$NotanENV",
+    "undefinedEnv": "$UNDEFINED_ENV",
+    "lowercaseEnv": "$lowercase_env",
     "deeper": {
         "testEnv": "$NODE_ENV"
     }

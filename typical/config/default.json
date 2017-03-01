@@ -1,0 +1,12 @@
+{
+    "default": true,
+    "options": {
+        "one": {
+            "two": "three"
+        }
+    },
+    "array": ["six"],
+    "testEnv": "default-value",
+    "undefinedEnv": "default-undefined",
+    "lowercaseEnv": "default-lowercase"
+}

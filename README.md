@@ -1,6 +1,6 @@
-#getconfig - config fetcher for node.js
+# getconfig - config fetcher for node.js
 
-Managing configs for different environments is kind of a pain. 
+Managing configs for different environments is kind of a pain.
 
 In short I wanted it to:
 - Be simple to understand and use
@@ -8,17 +8,20 @@ In short I wanted it to:
 - Let me just go `var config = require('getconfig')` from anywhere in the app and have it Just Work™
 - Allow using different formats (via require hooks)
 
+## Publish
+* Change the version number in ```package.json```
+* Run ```npm publish```
 
-## How to use
+## Usage
 
-1. `npm install getconfig`
+1. `npm install --save @simple/getconfig`
 2. Create a `config/default.json` file in the same folder as the main entry point (usually project root)
 3. Just require getconfig like so from anywhere in your project:
 
-```js
-var config = require('getconfig');
+    ```js
+    var config = require('@simple/getconfig');
 
-```
+    ```
 4. That's it!
 
 
@@ -52,12 +55,14 @@ getconfig will always fill in the `getconfig.env` value in your resulting config
 
 
 ## Changelog
+- `3.0.1`
+    - Accept lowercase environment variables in node. Previously, only uppercase variables are accepted.
 - `3.0.0`
     - Does not merge arrays from config layers, instead overwrites them entirely with the topmost config's array.
 - `2.0.0`
     - Total refactor, now stores config files in a directory and merges them on top of each other for simplicity.
 - `1.0.0`
-    - Bumping major to get out of `0.x.x` range per semver conventions. 
+    - Bumping major to get out of `0.x.x` range per semver conventions.
     - `dev` enviroments now look for related config files. So if you've set your `$NODE_ENV` to `development` and it will still find a file called `dev_config.json`.
 - `0.3.0` - Switching from JSON.parse to ALCE to allow single quotes and comments. Better readme.
 

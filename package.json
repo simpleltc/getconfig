@@ -1,21 +1,28 @@
 {
-  "name": "getconfig",
-  "description": "Environment aware config reader that follows our conventions at &yet.",
-  "version": "3.0.0",
-  "author": "Henrik Joreteg <henrik@andyet.net>",
-  "dependencies": {},
-  "devDependencies": {
-    "tape": "^4.5.1"
-  },
-  "files": [
-    "getconfig.js"
-  ],
-  "main": "getconfig.js",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:HenrikJoreteg/getconfig.git"
-  },
-  "scripts": {
-    "test": "node tests/tests.js"
-  }
+    "name": "@simple/getconfig",
+    "description": "Environment aware config reader that follows our conventions at &yet.",
+    "version": "3.0.2",
+    "author": "SimpleLTC",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:simpleltc/getconfig.git"
+    },
+    "publishConfig": {
+        "registry": "http://npm.sltc.local:4873"
+    },
+    "main": "getconfig.js",
+    "files": [
+        "getconfig.js",
+        "README.md"
+    ],
+    "dependencies": {},
+    "devDependencies": {
+        "jest": "19.0.2"
+    },
+    "scripts": {
+        "test": "jest --verbose",
+        "test:watch": "npm run test -- --watch",
+        "prebuild": "rimraf dist",
+        "build": "gulp --copy-files --out-dir dist --ignore __tests__ predist && rm -r predist"
+    }
 }

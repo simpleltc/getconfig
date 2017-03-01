@@ -1,0 +1,9 @@
+{
+    "dev": "dev-value",
+    "options": {
+        "one": {
+            "four": "five"
+        }
+    },
+    "array": ["seven"]
+}
